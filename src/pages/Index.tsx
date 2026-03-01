@@ -12,20 +12,22 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-const WHATSAPP_URL = "#"; // Replace with actual WhatsApp channel URL
+const WHATSAPP_URL = "https://whatsapp.com/channel/0029VbCCxpaEwEjx0pnZM229"; 
+const PREP_KIT_URL = "https://forms.gle/BiYA8pw3h29a8freA"
 
 const examSections = [
-  { name: "Verbal Ability", questions: 24, marks: 24, time: "30 min", difficulty: "Moderate" },
-  { name: "Reasoning Ability", questions: 30, marks: 30, time: "40 min", difficulty: "Moderate–Hard" },
-  { name: "Numerical Ability", questions: 26, marks: 26, time: "40 min", difficulty: "Moderate" },
-  { name: "Coding", questions: 2, marks: 20, time: "30 min", difficulty: "Hard" },
+  { name: "Numerical Ability", questions: 20, marks: 26, time: "25 min", difficulty: "Moderate" },
+  { name: "Verbal Ability", questions: 25, marks: 24, time: "25 min", difficulty: "Moderate" },
+  { name: "Reasoning Ability", questions: 20, marks: 30, time: "25 min", difficulty: "Moderate" },
+  { name: "Advanced Quantitative & Reasoning Ability", questions: "14-16", marks: 20, time: "25 min", difficulty: "Hard" },
+  { name: "Advanced Coding", questions: 2, marks: 20, time: "90 min", difficulty: "Hard" },  
 ];
 
 const scheduleItems = [
-  { label: "Registration Opens", date: "January 2026", icon: BookOpen },
-  { label: "Registration Deadline", date: "March 2026", icon: Calendar },
-  { label: "Exam Window", date: "April – May 2026", icon: Clock },
-  { label: "Results Declaration", date: "June 2026", icon: ChevronRight },
+  { label: "Registration Opens", date: "18 February 2026", icon: BookOpen },
+  { label: "Registration Deadline", date: "20 March 2026", icon: Calendar },
+  { label: "Test Date", date: "10 March 2026 Onwards", icon: Clock },
+  // { label: "Results Declaration", date: "June 2026", icon: ChevronRight },
 ];
 
 const difficultyColor = (d: string) => {
@@ -81,6 +83,22 @@ const Index = () => {
           </Card>
         </a>
 
+        {/* Registration form */}
+        <a href={PREP_KIT_URL} target="_blank" rel="noopener noreferrer" className="block">
+          <Card className="border-2 border-blue-500/30 bg-blue-500/5 hover:bg-blue-500/10 transition-colors cursor-pointer">
+            <CardContent className="flex items-center gap-4 p-6">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-500 text-white">
+                <BookOpen className="h-6 w-6" />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-semibold text-foreground text-lg">Struggling with what to study for the upcoming TCS NQT? We've got you covered. </h3>
+                <p className="text-sm text-muted-foreground">Grab the ultimate TCS NQT Prep Kit covering both Aptitude and Coding for just ₹99! 🚀</p>
+              </div>
+              <ArrowRight className="h-5 w-5 text-blue-500 shrink-0" />
+            </CardContent>
+          </Card>
+        </a>
+
         {/* Exam Pattern */}
         <section id="pattern" className="space-y-6">
           <div className="space-y-2">
@@ -95,7 +113,6 @@ const Index = () => {
                   <TableRow>
                     <TableHead>Section</TableHead>
                     <TableHead className="text-center">Questions</TableHead>
-                    <TableHead className="text-center">Marks</TableHead>
                     <TableHead className="text-center">Time</TableHead>
                     <TableHead className="text-center">Difficulty</TableHead>
                   </TableRow>
@@ -105,7 +122,6 @@ const Index = () => {
                     <TableRow key={s.name}>
                       <TableCell className="font-medium">{s.name}</TableCell>
                       <TableCell className="text-center">{s.questions}</TableCell>
-                      <TableCell className="text-center">{s.marks}</TableCell>
                       <TableCell className="text-center">{s.time}</TableCell>
                       <TableCell className="text-center">
                         <Badge variant="outline" className={difficultyColor(s.difficulty)}>
@@ -116,9 +132,8 @@ const Index = () => {
                   ))}
                   <TableRow className="font-semibold bg-muted/50">
                     <TableCell>Total</TableCell>
-                    <TableCell className="text-center">82</TableCell>
-                    <TableCell className="text-center">100</TableCell>
-                    <TableCell className="text-center">140 min</TableCell>
+                    <TableCell className="text-center">81-83</TableCell>
+                    <TableCell className="text-center">190 min</TableCell>
                     <TableCell />
                   </TableRow>
                 </TableBody>
